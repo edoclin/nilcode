@@ -1,0 +1,22 @@
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:www.nilcode.cn.pfx
+    key-store-password: nA7JP3jx
+    key-store-type: PKCS12
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://47.100.97.72:6603/nilcode
+    username: nilcode
+    password: nilcode
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      max-lifetime: 30000
+      connection-test-query: SELECT 1
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${admin.file-upload-path}
+admin:
+  file-upload-path: D:\\root\\
